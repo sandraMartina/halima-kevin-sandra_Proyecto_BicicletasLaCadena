@@ -1,175 +1,436 @@
 
-*{
+/* =========================
+  VARIABLES AND RESET */
+
+:root {
+    --verde: #173D30;
+    --verde-oscuro: #102B22;
+    --naranja: #F9A91A;
+    --crema: #FBF8F0;
+    --blanco: #FFFFFF;
+    --texto: #252B27;
+    --gris: #68736C;
+
+    --radio: 18px;
+    --sombra: 0 12px 35px rgba(20, 45, 34, 0.10);
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth; /* te maneja suavemente el scrool */
+    scroll-padding-top: 110px;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--texto);
+    line-height: 1.7;
+    background: var(--crema);
+}
+
+.img-fluid {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+.header a:focus-visible,
+.services-container a:focus-visible,
+.social-float a:focus-visible,
+.btn:focus-visible {
+    outline: 3px solid var(--naranja);
+    outline-offset: 5px;
+}
 
 
-body { 
-    margin: 0;
-    color: #252525;
-    line-height: 1.6;
-    background: #FBF8F0; 
-} 
+/* =========================
+ HEADER AND NAVIGATION*/
 
-/* ediciones del encabezado ************************ */
 .header {
-    margin: 0 auto;
-    padding: 0;
-    line-height: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    max-width: 1400px;
-
-}
-
-
-.logo {
-    display: block;
-} 
-
-.logo img{
-    height: auto;
-    max-width: 100%;
-    width: 500px;
-    display: block;
-
-} 
-
-
-/*AQUI ESTARIA EL MENU DESPEGABLE DE SERVICIO, EN DONDE ESTARAN DISTRIBUIDOS LAS CATEGORIAS: AQLUILER UY TALLER DE LA PAGINA:*/
-
-.navegacion{
-    display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    line-height: 1.2; /* the header has line-height 0, thats why doesnt allow us to clisify one */
+    justify-content: space-between;
+    gap: 30px;
+
+    padding: 12px 6%;
+    background: rgba(251, 248, 240, 0.97);
+    border-bottom: 1px solid rgba(23, 61, 48, 0.10);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.04);
 }
 
-.navegacion > a,
-.container > a {
-      /*display: inline-block;           so padding counts toward the height */
-    padding: 20px 34px;
-    margin-left: -25px;               /* esto nos simula la cadena */
-    border: 4px solid #F9A91A;
-    border-radius: 50%;
-    color: #2b230c;
-    text-decoration: none;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+.logo img {
+    width: 500px;
+    height: auto;
 }
 
-.navegacion > a:first-child { margin-left: 0; }
-
-.navegacion > a:hover,
-.container > a:hover { 
-    background: #F9A91A; 
-    color: #0B1B26;
-}
-
-.container{
-    position: relative;
-    display: inline-block;
-    list-style: none;
-    margin-left: -5px;
-}
-
-
-
-.navegacion ul {
-    list-style: none;
+.menu {
     display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+}
+
+.menu > li {
+    position: relative;
+}
+
+.menu a {
+    display: block;
+    padding: 12px 15px;
+    border-radius: 8px;
+
+    color: var(--verde);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+.menu > li > a:hover,
+.menu > li > a:focus-visible,
+.menu-link:hover,
+.menu-link:focus-visible {
+    background: rgba(249, 169, 26, 0.17);
+}
+
+.menu .nav-contacto {
+    background: var(--naranja);
+    color: var(--verde-oscuro);
+    padding-inline: 22px;
+}
+
+.menu .nav-contacto:hover {
+    background: var(--verde);
+    color: var(--blanco);
+}
+
+.flecha {
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+.menu-item:hover .flecha,
+.menu-item:focus-within .flecha {
+    transform: rotate(180deg);
 }
 
 
-/* submenu: */
+/* =========================
+    DROPDOWN SUBMENU*/
 
 .submenu {
-    display: none;
     position: absolute;
-    top: 35px;
-    left: 0%;
-    padding: 12px 15px;
-    margin: 0;
-    z-index: 100;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-    z-index: 100;
-    border-radius: 8px;
-    flex-direction: row;
-    align-items: center;
-    background: transparent;
+    top: calc(100% + 8px);
+    left: 0;
+
+    min-width: 190px;
+    padding: 8px;
+    list-style: none;
+
+    background: var(--blanco);
+    border: 1px solid rgba(23, 61, 48, 0.10);
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
 }
 
-.container:hover .submenu {
+.submenu a {
+    padding: 11px 14px;
+    border-radius: 7px;
+}
+
+.submenu a:hover {
+    background: var(--crema);
+    color: #986000;
+}
+
+.menu-item:hover .submenu,
+.menu-item:focus-within .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* =========================
+    HERO BANNER*/
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    min-height: 570px;
+    overflow: hidden;
+
     display: flex;
-    /* flex-direction: column; */
+    align-items: center;
+
+    background: var(--verde-oscuro);
 }
 
-.sub-item {
-    padding: 18px 24px;
-    background-color: #fffaf0;
-    color: #0B1B26;
-    text-decoration: none;
-    font-size: 13px;
-    white-space: nowrap;
-    border-radius: 30px;
-    margin-left: -10px;
-    border: 1px solid #F9A91A; ;
-    transition: background-color  0.3s, color 0,3s;
-    
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(10, 30, 23, 0.85) 0%,
+        rgba(10, 30, 23, 0.55) 48%,
+        rgba(10, 30, 23, 0.08) 100%
+    );
 }
 
-.sub-item:hover {
-    background: #F9A91A;
-    color: #0B1B26;
+.hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-content {
     position: relative;
     z-index: 1;
+
+    width: min(850px, 100%);
+    padding: 75px 8%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+
+    color: var(--blanco);
+    animation: aparecer 0.8s ease both;
+}
+
+.hero-content h1 {
+    max-width: 750px;
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    line-height: 1.08;
+    letter-spacing: -2px;
+    font-weight: 800;
+}
+
+.hero-content p {
+    max-width: 540px;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: #F3F2E9;
 }
 
 
-/* edicion redes sociales ******************************/
+/* =========================
+    BUTTONS*/
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 14px 24px;
+    border: 2px solid var(--naranja);
+    border-radius: 8px;
+
+    background: var(--naranja);
+    color: var(--verde-oscuro);
+
+    font-weight: 750;
+    text-decoration: none;
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background: var(--verde);
+    border-color: var(--verde);
+    color: var(--blanco);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================
+    GENERAL SECTIONS */
+
+.section {
+    padding: 85px 7%;
+}
+
+.section h2 {
+    margin-bottom: 16px;
+    color: var(--verde);
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.section-intro {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--gris);
+}
+
+
+/* =========================
+     SERVICE CARDS */
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+
+    max-width: 1250px;
+    margin: 42px auto 0;
+}
+
+.service-card {
+    overflow: hidden;
+    padding: 0;
+
+    background: var(--blanco);
+    border: 1px solid rgba(23, 61, 48, 0.08);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 22px 45px rgba(20, 45, 34, 0.15);
+}
+
+.service-card .taller {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-card:hover .taller {
+    transform: scale(1.04);
+}
+
+.service-card h3 {
+    padding: 22px 24px 0;
+    color: var(--verde);
+    font-size: 1.35rem;
+}
+
+.service-card p {
+    padding: 10px 24px 24px;
+    color: var(--gris);
+}
+
+.card-link {
+    display: inline-block;
+    margin: 0 24px 25px;
+    color: var(--verde);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.card-link:hover {
+    color: #986000;
+}
+
+
+/* =========================
+   9. CONTACT SECTION */
+
+.contact {
+    text-align: center;
+    background: var(--verde);
+    color: var(--blanco);
+}
+
+.contact h2 {
+    color: var(--blanco);
+}
+
+.contact p {
+    max-width: 620px;
+    margin: 0 auto 28px;
+    color: #E0E8E1;
+}
+
+.contact .btn {
+    color: var(--verde-oscuro);
+}
+
+
+/* =========================
+    10. FLOATING SOCIAL BUTTONS*/
+
 .social-float {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    right: 22px;
+    bottom: 22px;
+    z-index: 1100;
+
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    /* z-index: 1000z; */
+    gap: 12px;
 }
 
 .social-btn {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
+    width: 52px;
+    height: 52px;
 
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    border-radius: 50%;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
+
+    transition: transform 0.25s ease;
 }
 
 .social-btn img {
-    width: 28px;
-    height: 28px;
+    width: 25px;
+    height: 25px;
 }
 
 .social-btn:hover {
-    transform: scale(1.12);
+    transform: scale(1.12) translateY(-2px);
 }
 
 .whatsapp {
-    background-color: #25D366;
+    background: #25D366;
 }
 
 .instagram {
@@ -183,146 +444,144 @@ body {
     );
 }
 
-/* edicones imgen de la pagina de inicio ******************/
 
-.turismoA img{
-    width: 100%;
-    height: 420px;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-}
+/* =========================
+    FOOTER*/
 
-
-
-/* MAIN BANNER */
-.hero {
-    position: relative;
-    width: 100%;
-    height: 420px;
-    overflow: hidden;
-}
-
-.hero-image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.hero-content {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: end;
-    gap: 10px;
-    padding: 20px;
-    text-align: start;
-    color: white;
-
-}
-
-.hero-content h1 {
-    font-size: 3rem;
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    
-}
-
-/* BUTTONS */
-.btn {
-    display: inline-block;
-    padding: 12px 24px;
-    border-radius: 6px;
-    background-color: white;
-    color: #e6950a;
-    text-decoration: none;
-    font-weight: bolder;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #1b6332;
-    color: white;
-}
-
-/* GENERAL SECTIONS */
-.section {
-    padding: 65px 8%;
-}
-
-.section h2 {
-    margin-bottom: 15px;
-    text-align: center;
-    font-size: 2rem;
-}
-
-/* SERVICE CARDS */
-.services-container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.service-card {
-    padding: 25px;
-    border-radius: 10px;
-    background-color: #f4f6f3;
-}
-
-.taller{
-    height: 300px;
-}
-.service-card h3 {
-    margin-bottom: 12px;
-    color: #268746;
-}
-
-
-/* CONTACT */
-.contact {
-    text-align: center;
-}
-
-.contact p {
-    margin: 0 auto 25px;
-    max-width: 600px;
-}
-
-/* FOOTER */
 .footer {
-    padding: 20px;
+    padding: 28px 6%;
     text-align: center;
-    background-color: #252525;
-    color: white;
+    background: var(--verde-oscuro);
+    color: #D9E2DA;
+    font-size: 0.9rem;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
+
+/* =========================
+   12. ANIMATIONS*/
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+    TABLET AND MOBILE*/
+
+@media (max-width: 950px) {
+    .header {
+        gap: 12px;
+        padding-inline: 4%;
+    }
+
+    .logo img {
+        width: 175px;
+    }
+
+    .menu {
+        gap: 2px;
+    }
+
+    .menu a {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+
+    .services-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .header {
+        position: relative;
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px 4%;
+    }
+
+    .logo img {
+        width: 190px;
+    }
+
+    .navegacion {
+        width: 100%;
+    }
+
+    .menu {
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .menu a {
+        padding: 9px 10px;
+        font-size: 0.8rem;
+    }
+
+    .submenu {
+        left: 50%;
+        transform: translate(-50%, 8px);
+    }
+
+    .menu-item:hover .submenu,
+    .menu-item:focus-within .submenu {
+        transform: translate(-50%, 0);
+    }
+
     .hero {
-        height: 300px;
+        min-height: 490px;
+    }
+
+    .hero::after {
+        background: linear-gradient(
+            90deg,
+            rgba(10, 30, 23, 0.82),
+            rgba(10, 30, 23, 0.38)
+        );
+    }
+
+    .hero-content {
+        padding: 55px 7%;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2.5rem, 11vw, 3.6rem);
+        letter-spacing: -1px;
+    }
+
+    .section {
+        padding: 60px 6%;
     }
 
     .services-container {
         grid-template-columns: 1fr;
+        gap: 22px;
+        margin-top: 30px;
     }
 
-    .section {
-        padding: 45px 6%;
-    }
-
-    .menu {
-        gap: 12px 18px;
+    .service-card .taller {
+        height: 240px;
     }
 
     .social-float {
         right: 12px;
         bottom: 12px;
+        gap: 9px;
+    }
+
+    .social-btn {
+        width: 46px;
+        height: 46px;
     }
 }
+
+
