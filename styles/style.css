@@ -1,11 +1,10 @@
-
 /* =========================
-  VARIABLES AND RESET */
-
+    VARIABLES  */
 :root {
     --verde: #173D30;
     --verde-oscuro: #102B22;
     --naranja: #F9A91A;
+    --naranja-suave: #FCEBC4;
     --crema: #FBF8F0;
     --blanco: #FFFFFF;
     --texto: #252B27;
@@ -13,177 +12,210 @@
 
     --radio: 18px;
     --sombra: 0 12px 35px rgba(20, 45, 34, 0.10);
+
+    --font-titulo: "Bricolage Grotesque", "Trebuchet MS", "Segoe UI", sans-serif;
+    --font-texto: "DM Sans", "Segoe UI", Arial, sans-serif;
+
+    /* medidas del eslabón de la cadena */
+    --eslabon-alto: 52px;
+    --eslabon-borde: 4px;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 html {
-    scroll-behavior: smooth; /* te maneja suavemente el scrool */
+    scroll-behavior: smooth;
     scroll-padding-top: 110px;
 }
 
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: var(--font-texto);
     color: var(--texto);
     line-height: 1.7;
     background: var(--crema);
 }
 
-.img-fluid {
-    display: block;
-    width: 100%;
-    object-fit: cover;
-}
+img { max-width: 100%; height: auto; }
 
-.header a:focus-visible,
-.services-container a:focus-visible,
-.social-float a:focus-visible,
+.img-fluid { display: block; width: 100%; object-fit: cover; }
+
+h1, h2, h3 { font-family: var(--font-titulo); }
+
+a:focus-visible,
 .btn:focus-visible {
-    outline: 3px solid var(--naranja);
-    outline-offset: 5px;
+    outline: 3px solid var(--verde);
+    outline-offset: 4px;
 }
 
 
 /* =========================
- HEADER AND NAVIGATION*/
-
+    HEADER Y CADENA*/
 .header {
     position: sticky;
     top: 0;
     z-index: 1000;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
-
-    padding: 12px 6%;
+    flex-wrap: wrap;
+    gap: 16px 30px;
+    padding: 14px 6%;
     background: rgba(251, 248, 240, 0.97);
-    border-bottom: 1px solid rgba(23, 61, 48, 0.10);
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.04);
+    border-bottom: 1px solid rgba(23, 61, 48, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
+.logo { display: block; flex: 0 0 auto; }
+
+/* gana a .img-fluid (width:100%) por especificidad */
 .logo img {
+    display: block;
     width: 500px;
     height: auto;
 }
 
+.navegacion { line-height: 1.2; }
+
 .menu {
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
     list-style: none;
 }
 
-.menu > li {
+.menu > li { position: relative; }
+
+/* cada eslabón se solapa medio eslabón con el anterior */
+.menu > li + li { margin-left: calc(var(--eslabon-alto) / -2); }
+
+.menu-link {
     position: relative;
-}
-
-.menu a {
-    display: block;
-    padding: 12px 15px;
-    border-radius: 8px;
-
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: var(--eslabon-alto);
+    padding: 0 calc(var(--eslabon-alto) / 2 + 12px);
+    border: var(--eslabon-borde) solid var(--naranja);
+    border-radius: 999px;
     color: var(--verde);
+    font-family: var(--font-titulo);
+    font-size: 1.02rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
     text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 600;
-
-    transition:
-        background-color 0.25s ease,
-        color 0.25s ease;
+    white-space: nowrap;
+    transition: border-color 0.25s ease, color 0.25s ease;
 }
 
-.menu > li > a:hover,
-.menu > li > a:focus-visible,
-.menu-link:hover,
-.menu-link:focus-visible {
-    background: rgba(249, 169, 26, 0.17);
+/* Truco del entrelazado: repite la MITAD INFERIOR del borde
+    por encima del eslabón siguiente. Arriba pasa por encima,
+   abajo por debajo = eslabones realmente enlazados. */
+.menu-link::after {
+    content: "";
+    position: absolute;
+    inset: calc(var(--eslabon-borde) * -1);
+    border: inherit;
+    border-radius: inherit;
+    clip-path: inset(50% 0 0 calc(100% - var(--eslabon-alto)));
+    pointer-events: none;
 }
 
-.menu .nav-contacto {
-    background: var(--naranja);
+.menu > li:hover > .menu-link,
+.menu > li:focus-within > .menu-link {
+    border-color: var(--verde);
     color: var(--verde-oscuro);
-    padding-inline: 22px;
 }
 
-.menu .nav-contacto:hover {
-    background: var(--verde);
-    color: var(--blanco);
+.menu-link[aria-current="page"] { border-color: var(--verde); }
+
+/* Contacto: mismo eslabón, en verde oscuro y más pesado */
+.menu-link.nav-contacto {
+    border-color: var(--verde-oscuro);
+    color: var(--verde-oscuro);
 }
+
+/* el último eslabón no tiene vecino a la derecha */
+.menu > li:last-child .menu-link::after { content: none; }
+
+.menu-link.nav-contacto:hover { border-color: var(--naranja); }
 
 .flecha {
     display: inline-block;
+    font-size: 0.6rem;
     transition: transform 0.25s ease;
 }
 
 .menu-item:hover .flecha,
-.menu-item:focus-within .flecha {
-    transform: rotate(180deg);
-}
+.menu-item:focus-within .flecha { transform: rotate(180deg); }
 
 
 /* =========================
-    DROPDOWN SUBMENU*/
-
+    SUBMENÚ*/
 .submenu {
     position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    z-index: 5;
 
-    min-width: 190px;
+    min-width: 200px;
     padding: 8px;
     list-style: none;
 
     background: var(--blanco);
-    border: 1px solid rgba(23, 61, 48, 0.10);
-    border-radius: 12px;
+    border: 3px solid var(--naranja);
+    border-radius: 26px;
     box-shadow: var(--sombra);
 
     opacity: 0;
     visibility: hidden;
-    transform: translateY(8px);
-
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease,
-        visibility 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
 }
 
-.submenu a {
-    padding: 11px 14px;
-    border-radius: 7px;
+/* puente invisible: el hover no se pierde al cruzar el hueco */
+.submenu::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -16px;
+    height: 16px;
 }
 
-.submenu a:hover {
-    background: var(--crema);
-    color: #986000;
+.submenu-link {
+    display: block;
+    padding: 12px 20px;
+    border-radius: 999px;
+    color: var(--verde);
+    font-size: 0.98rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.submenu-link:hover,
+.submenu-link:focus-visible {
+    background: var(--naranja-suave);
+    color: var(--verde-oscuro);
 }
 
 .menu-item:hover .submenu,
 .menu-item:focus-within .submenu {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
 }
 
 
 /* =========================
-    HERO BANNER*/
-
+    HERO */
 .hero {
     position: relative;
     isolation: isolate;
-    min-height: 570px;
+    min-height: clamp(420px, 62vh, 570px);
     overflow: hidden;
-
     display: flex;
     align-items: center;
-
     background: var(--verde-oscuro);
 }
 
@@ -192,20 +224,17 @@ body {
     position: absolute;
     inset: 0;
     z-index: 0;
-
-    background: linear-gradient(
-        90deg,
+    background: linear-gradient(90deg,
         rgba(10, 30, 23, 0.85) 0%,
         rgba(10, 30, 23, 0.55) 48%,
-        rgba(10, 30, 23, 0.08) 100%
-    );
+        rgba(10, 30, 23, 0.08) 100%);
 }
 
 .hero-image {
     position: absolute;
     inset: 0;
     z-index: -1;
-
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -215,24 +244,20 @@ body {
 .hero-content {
     position: relative;
     z-index: 1;
-
     width: min(850px, 100%);
     padding: 75px 8%;
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 18px;
-
     color: var(--blanco);
-    animation: aparecer 0.8s ease both;
 }
 
 .hero-content h1 {
     max-width: 750px;
-    font-size: clamp(2.8rem, 6vw, 5.2rem);
-    line-height: 1.08;
-    letter-spacing: -2px;
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
     font-weight: 800;
 }
 
@@ -244,29 +269,21 @@ body {
 
 
 /* =========================
-    BUTTONS*/
-
+    BOTONES */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-
-    padding: 14px 24px;
+    padding: 14px 28px;
     border: 2px solid var(--naranja);
-    border-radius: 8px;
-
+    border-radius: 999px;
     background: var(--naranja);
     color: var(--verde-oscuro);
-
-    font-weight: 750;
+    font-family: var(--font-titulo);
+    font-weight: 700;
     text-decoration: none;
-
-    transition:
-        transform 0.25s ease,
-        background-color 0.25s ease,
-        color 0.25s ease,
-        box-shadow 0.25s ease;
+    transition: transform 0.25s ease, background-color 0.25s ease,
+                color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn:hover {
@@ -279,19 +296,16 @@ body {
 
 
 /* =========================
-    GENERAL SECTIONS */
-
-.section {
-    padding: 85px 7%;
-}
+    SECCIONES*/
+.section { padding: 85px 7%; }
 
 .section h2 {
     margin-bottom: 16px;
     color: var(--verde);
     text-align: center;
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1.2;
-    letter-spacing: -1px;
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
 }
 
 .section-intro {
@@ -303,45 +317,39 @@ body {
 
 
 /* =========================
-     SERVICE CARDS */
-
+    TARJETAS DE SERVICIOS
+   (la imagen va arriba aunque en el HTML esté después del h3)*/
 .services-container {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 28px;
-
     max-width: 1250px;
     margin: 42px auto 0;
 }
 
 .service-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
-    padding: 0;
-
     background: var(--blanco);
     border: 1px solid rgba(23, 61, 48, 0.08);
     border-radius: var(--radio);
     box-shadow: var(--sombra);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     box-shadow: 0 22px 45px rgba(20, 45, 34, 0.15);
 }
 
-.service-card .taller {
+.service-card img {
+    order: -1;
+    display: block;
     width: 100%;
     height: 250px;
     object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.service-card:hover .taller {
-    transform: scale(1.04);
 }
 
 .service-card h3 {
@@ -350,36 +358,32 @@ body {
     font-size: 1.35rem;
 }
 
-.service-card p {
-    padding: 10px 24px 24px;
-    color: var(--gris);
-}
-
-.card-link {
-    display: inline-block;
-    margin: 0 24px 25px;
-    color: var(--verde);
-    font-weight: 700;
+/* si el título es un enlace, toda la tarjeta es clicable */
+.service-card h3 a {
+    color: inherit;
     text-decoration: none;
 }
 
-.card-link:hover {
-    color: #986000;
+.service-card h3 a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
 }
 
+.service-card p {
+    padding: 10px 24px 26px;
+    color: var(--gris);
+}
 
 /* =========================
-   9. CONTACT SECTION */
-
+ CONTACTO*/
 .contact {
     text-align: center;
     background: var(--verde);
     color: var(--blanco);
 }
 
-.contact h2 {
-    color: var(--blanco);
-}
+.contact h2 { color: var(--blanco); }
 
 .contact p {
     max-width: 620px;
@@ -387,20 +391,14 @@ body {
     color: #E0E8E1;
 }
 
-.contact .btn {
-    color: var(--verde-oscuro);
-}
-
 
 /* =========================
-    10. FLOATING SOCIAL BUTTONS*/
-
+    REDES FLOTANTES*/
 .social-float {
     position: fixed;
     right: 22px;
     bottom: 22px;
     z-index: 1100;
-
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -409,45 +407,26 @@ body {
 .social-btn {
     width: 52px;
     height: 52px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     border-radius: 50%;
     box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
-
     transition: transform 0.25s ease;
 }
 
-.social-btn img {
-    width: 25px;
-    height: 25px;
-}
+.social-btn img { width: 26px; height: 26px; }
+.social-btn:hover { transform: scale(1.12) translateY(-2px); }
 
-.social-btn:hover {
-    transform: scale(1.12) translateY(-2px);
-}
-
-.whatsapp {
-    background: #25D366;
-}
+.whatsapp { background: #25D366; }
 
 .instagram {
-    background: linear-gradient(
-        45deg,
-        #feda75,
-        #fa7e1e,
-        #d62976,
-        #962fbf,
-        #4f5bd5
-    );
+    background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
 }
 
 
 /* =========================
-    FOOTER*/
-
+   11. FOOTER */
 .footer {
     padding: 28px 6%;
     text-align: center;
@@ -458,130 +437,32 @@ body {
 
 
 /* =========================
-   12. ANIMATIONS*/
-
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(22px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    12. RESPONSIVE*/
+@media (max-width: 1000px) {
+    .services-container { grid-template-columns: 1fr; max-width: 540px; }
 }
 
-
-/* =========================
-    TABLET AND MOBILE*/
-
-@media (max-width: 950px) {
-    .header {
-        gap: 12px;
-        padding-inline: 4%;
-    }
-
-    .logo img {
-        width: 175px;
-    }
-
-    .menu {
-        gap: 2px;
-    }
-
-    .menu a {
-        padding: 10px;
-        font-size: 0.85rem;
-    }
-
-    .services-container {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+@media (max-width: 768px) {
+    .header { flex-direction: column; justify-content: center; gap: 12px; padding: 12px 5%; }
+    .logo img { width: 170px; }
+    .section { padding: 56px 6%; }
+    .hero-content { padding: 56px 6%; }
+    .social-float { right: 12px; bottom: 12px; }
 }
 
-@media (max-width: 650px) {
-    .header {
-        position: relative;
-        flex-direction: column;
-        gap: 12px;
-        padding: 14px 4%;
-    }
-
-    .logo img {
-        width: 190px;
-    }
-
-    .navegacion {
-        width: 100%;
-    }
-
-    .menu {
-        justify-content: center;
-        flex-wrap: wrap;
-        width: 100%;
-    }
-
-    .menu a {
-        padding: 9px 10px;
-        font-size: 0.8rem;
-    }
-
-    .submenu {
-        left: 50%;
-        transform: translate(-50%, 8px);
-    }
-
-    .menu-item:hover .submenu,
-    .menu-item:focus-within .submenu {
-        transform: translate(-50%, 0);
-    }
-
-    .hero {
-        min-height: 490px;
-    }
-
-    .hero::after {
-        background: linear-gradient(
-            90deg,
-            rgba(10, 30, 23, 0.82),
-            rgba(10, 30, 23, 0.38)
-        );
-    }
-
-    .hero-content {
-        padding: 55px 7%;
-    }
-
-    .hero-content h1 {
-        font-size: clamp(2.5rem, 11vw, 3.6rem);
-        letter-spacing: -1px;
-    }
-
-    .section {
-        padding: 60px 6%;
-    }
-
-    .services-container {
-        grid-template-columns: 1fr;
-        gap: 22px;
-        margin-top: 30px;
-    }
-
-    .service-card .taller {
-        height: 240px;
-    }
-
-    .social-float {
-        right: 12px;
-        bottom: 12px;
-        gap: 9px;
-    }
-
-    .social-btn {
-        width: 46px;
-        height: 46px;
-    }
+@media (max-width: 520px) {
+    :root { --eslabon-alto: 32px; --eslabon-borde: 3px; }
+    .header { padding-left: 3%; padding-right: 3%; }
+    .menu-link { font-size: 0.7rem; gap: 4px; padding: 0 calc(var(--eslabon-alto) / 2 + 1px); }
 }
 
+/* pantallas muy estrechas: la cadena pasa a dos filas */
+@media (max-width: 370px) {
+    .menu { flex-wrap: wrap; row-gap: 8px; }
+    .menu > li:nth-child(4) { margin-left: 0; }
+    .menu-link { font-size: 0.74rem; padding: 0 calc(var(--eslabon-alto) / 2 + 4px); }
+}
 
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; scroll-behavior: auto !important; }
+}
