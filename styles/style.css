@@ -16,49 +16,46 @@ body {
 
 /* ediciones del encabezado ************************ */
 .header {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     line-height: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1400px;
+
 }
+
 
 .logo {
     display: block;
-}
+} 
+
 .logo img{
     height: auto;
-    width: 100%;
+    max-width: 100%;
+    width: 500px;
     display: block;
 
 } 
 
 
-/* cadena that apperas all the horizontal line */
-/* .menu::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 20px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='20' viewBox='0 0 30 20'%3E%3Cg fill='none' stroke='%23F9A91A' stroke-width='3'%3E%3Crect x='-16' y='3' width='42' height='14' rx='7'/%3E%3Crect x='14' y='3' width='42' height='14' rx='7'/%3E%3C/g%3E%3C/svg%3E") repeat-x;
-} */
+/*AQUI ESTARIA EL MENU DESPEGABLE DE SERVICIO, EN DONDE ESTARAN DISTRIBUIDOS LAS CATEGORIAS: AQLUILER UY TALLER DE LA PAGINA:*/
 
-
-.menu {
-    margin: 50px 10px;
+.navegacion{
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
-    padding: 15px 20px;
-    background-color: #ffffff;
-    
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2; /* the header has line-height 0, thats why doesnt allow us to clisify one */
 }
 
-.menu a {
-    
-    padding: 10px 34px;
-    margin-left: -25px;                   /* se solapan como eslabones */
+.navegacion > a,
+.container > a {
+      /*display: inline-block;           so padding counts toward the height */
+    padding: 20px 34px;
+    margin-left: -25px;               /* esto nos simula la cadena */
     border: 4px solid #F9A91A;
     border-radius: 50%;
     color: #2b230c;
@@ -67,10 +64,74 @@ body {
     text-transform: uppercase;
 }
 
-.menu a:first-child { margin-left: 0; }
-.menu a:hover { 
+.navegacion > a:first-child { margin-left: 0; }
+
+.navegacion > a:hover,
+.container > a:hover { 
     background: #F9A91A; 
-    color: #0B1B26; 
+    color: #0B1B26;
+}
+
+.container{
+    position: relative;
+    display: inline-block;
+    list-style: none;
+    margin-left: -5px;
+}
+
+
+
+.navegacion ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* submenu: */
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0%;
+    padding: 12px 15px;
+    margin: 0;
+    z-index: 100;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    z-index: 100;
+    border-radius: 8px;
+    flex-direction: row;
+    align-items: center;
+    background: transparent;
+}
+
+.container:hover .submenu {
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.sub-item {
+    padding: 18px 24px;
+    background-color: #fffaf0;
+    color: #0B1B26;
+    text-decoration: none;
+    font-size: 13px;
+    white-space: nowrap;
+    border-radius: 30px;
+    margin-left: -10px;
+    border: 1px solid #F9A91A; ;
+    transition: background-color  0.3s, color 0,3s;
+    
+}
+
+.sub-item:hover {
+    background: #F9A91A;
+    color: #0B1B26;
+    position: relative;
+    z-index: 1;
 }
 
 
@@ -155,24 +216,22 @@ body {
     inset: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
+    align-items: flex-start;
+    justify-content: end;
+    gap: 10px;
     padding: 20px;
-    text-align: center;
+    text-align: start;
     color: white;
-    background: linear-gradient(
-        rgba(0, 0, 0, 0.15),
-        rgba(0, 0, 0, 0.55)
-    );
+
 }
 
 .hero-content h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: 3rem;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    
 }
 
 /* BUTTONS */
@@ -256,52 +315,6 @@ body {
     text-align: center;
     background-color: #252525;
     color: white;
-}
-
-/* FLOATING WHATSAPP AND INSTAGRAM */
-.social-float {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    z-index: 1000;
-}
-
-.social-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
-
-.social-btn img {
-    width: 28px;
-    height: 28px;
-}
-
-.social-btn:hover {
-    transform: scale(1.1);
-}
-
-.whatsapp {
-    background-color: #25D366;
-}
-
-.instagram {
-    background: linear-gradient(
-        45deg,
-        #feda75,
-        #fa7e1e,
-        #d62976,
-        #962fbf,
-        #4f5bd5
-    );
 }
 
 /* MOBILE */
