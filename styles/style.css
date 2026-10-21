@@ -35,17 +35,11 @@ body {
 
 img { max-width: 100%; height: auto; }
 
-.img-fluid { display: block; width: 100%; object-fit: cover; }
+.img-fluid { display: block; width: 100%; object-fit: cover; } /*  expansion sin stirarse o perder su radio original */
 
-h1, h2, h3 { font-family: var(--font-titulo); }
-
-a:focus-visible,
-.btn:focus-visible {
-    outline: 3px solid var(--verde);
-    outline-offset: 4px;
+h1, h2, h3 {
+     font-family: var(--font-titulo);
 }
-
-
 /* =========================
     HEADER Y CADENA*/
 .header {
@@ -65,14 +59,16 @@ a:focus-visible,
 
 .logo { display: block; flex: 0 0 auto; }
 
-/* gana a .img-fluid (width:100%) por especificidad */
+/* agregamos el tamaño para pantallas grandes pero cuando se vea en dispositivos mas pequeños 
+se adapte de forma segura a ellos tambien */
 .logo img {
     display: block;
-    width: 500px;
+    max-width: 500px;
+    width: 100%;
     height: auto;
 }
 
-.navegacion { line-height: 1.2; }
+ .navegacion { line-height: 1.2; }  /*aumenta el tamaño de la fuente exatamente 1.2 del original sin necesidad de agregar em px */
 
 .menu {
     display: flex;
@@ -382,7 +378,7 @@ a:focus-visible,
 }
 
 
-/* botones de redes sociales para contactar con Lucia (o ronaldo... Ni puñetera idea de como se llama el jefe)*/
+/* botones de redes sociales para contactar con Lucia (o ronaldo... Ni idea de como se llama el jefe)*/
 .social-float {
     position: fixed;
     right: 22px;
@@ -414,7 +410,7 @@ a:focus-visible,
 }
 
 
-/* FOOTER... Aunque tecnicamente se usa sin el punto, peeeeeeeeeero, no quiero complication */
+/* FOOTER... Aunque tecnicamente se usa sin el punto, peeeeeeeeeero, no quiero complication (la clase se llama footer) */
 .footer {
     padding: 28px 6%;
     text-align: center;
