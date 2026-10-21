@@ -9,19 +9,17 @@
     --blanco: #FFFFFF;
     --texto: #252B27;
     --gris: #68736C;
-
     --radio: 18px;
     --sombra: 0 12px 35px rgba(20, 45, 34, 0.10);
-
     --font-titulo: "Bricolage Grotesque", "Trebuchet MS", "Segoe UI", sans-serif;
     --font-texto: "DM Sans", "Segoe UI", Arial, sans-serif;
-
     /* medidas del eslabón de la cadena */
     --eslabon-alto: 52px;
     --eslabon-borde: 4px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 
 html {
     scroll-behavior: smooth;
@@ -107,9 +105,7 @@ a:focus-visible,
     transition: border-color 0.25s ease, color 0.25s ease;
 }
 
-/* Truco del entrelazado: repite la MITAD INFERIOR del borde
-    por encima del eslabón siguiente. Arriba pasa por encima,
-   abajo por debajo = eslabones realmente enlazados. */
+
 .menu-link::after {
     content: "";
     position: absolute;
@@ -128,13 +124,13 @@ a:focus-visible,
 
 .menu-link[aria-current="page"] { border-color: var(--verde); }
 
-/* Contacto: mismo eslabón, en verde oscuro y más pesado */
+
 .menu-link.nav-contacto {
     border-color: var(--verde-oscuro);
     color: var(--verde-oscuro);
 }
 
-/* el último eslabón no tiene vecino a la derecha */
+
 .menu > li:last-child .menu-link::after { content: none; }
 
 .menu-link.nav-contacto:hover { border-color: var(--naranja); }
@@ -149,8 +145,7 @@ a:focus-visible,
 .menu-item:focus-within .flecha { transform: rotate(180deg); }
 
 
-/* =========================
-    SUBMENÚ*/
+/* SUBMENÚ*/
 .submenu {
     position: absolute;
     top: calc(100% + 10px);
@@ -172,7 +167,7 @@ a:focus-visible,
     transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
 }
 
-/* puente invisible: el hover no se pierde al cruzar el hueco */
+/* puente invisible */
 .submenu::before {
     content: "";
     position: absolute;
@@ -207,8 +202,7 @@ a:focus-visible,
 }
 
 
-/* =========================
-    HERO */
+/* Contenedor de imagen principal de la página index*/
 .hero {
     position: relative;
     isolation: isolate;
@@ -268,8 +262,8 @@ a:focus-visible,
 }
 
 
-/* =========================
-    BOTONES */
+/*un botoncito para ir a servicios */
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -295,8 +289,7 @@ a:focus-visible,
 }
 
 
-/* =========================
-    SECCIONES*/
+/* SECCIONES*/
 .section { padding: 85px 7%; }
 
 .section h2 {
@@ -316,9 +309,7 @@ a:focus-visible,
 }
 
 
-/* =========================
-    TARJETAS DE SERVICIOS
-   (la imagen va arriba aunque en el HTML esté después del h3)*/
+/* TARJETAS DE SERVICIOS (la imagen va arriba)*/
 .services-container {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -358,7 +349,7 @@ a:focus-visible,
     font-size: 1.35rem;
 }
 
-/* si el título es un enlace, toda la tarjeta es clicable */
+/* enlace encima de las fotos */
 .service-card h3 a {
     color: inherit;
     text-decoration: none;
@@ -375,8 +366,7 @@ a:focus-visible,
     color: var(--gris);
 }
 
-/* =========================
- CONTACTO*/
+/* seccion de CONTACTO*/
 .contact {
     text-align: center;
     background: var(--verde);
@@ -392,8 +382,7 @@ a:focus-visible,
 }
 
 
-/* =========================
-    REDES FLOTANTES*/
+/* botones de redes sociales para contactar con Lucia (o ronaldo... Ni puñetera idea de como se llama el jefe)*/
 .social-float {
     position: fixed;
     right: 22px;
@@ -425,8 +414,7 @@ a:focus-visible,
 }
 
 
-/* =========================
-   11. FOOTER */
+/* FOOTER... Aunque tecnicamente se usa sin el punto, peeeeeeeeeero, no quiero complication */
 .footer {
     padding: 28px 6%;
     text-align: center;
@@ -436,8 +424,407 @@ a:focus-visible,
 }
 
 
-/* =========================
-    12. RESPONSIVE*/
+/*ACA ABAJO ESTARAN LOS CSS DE PAGINA SERVICIOS, ALQUILER y TALLER (EL POR QUE HAGO ESO? LA BARRA DE NAVEGACION SE PETO HORRIBLE, 
+    Y COMO TENEMOS POCO TIEMPO... LO PONDRE AQUI ABAJO. ODIO GITHUB -c-) */
+
+/* Contenido de css de la pagina en general: SERVICIOS (odio los submenus):*/
+
+.servicios h1 {
+    text-align: center;
+}
+
+.servicios p {
+margin-left: 3%;
+margin-top: 5px;
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: 120%;
+}
+
+
+.contenedor-servicios {
+padding: 50px 25px;
+text-align: center;
+background-color: #ecebe6c0;
+max-width: 1000px;
+margin: 40px auto;
+}
+
+
+.seccion-detalles {
+    padding: 30px 0;
+}
+
+
+.enlace-servicios {
+    margin-top: 25px;
+}
+
+
+.texto-de-servicios h2 {
+    margin-top: 2%;
+    font-size: 1.8rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+
+.texto-de-servicios h3 {
+    font-size: 1.3rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+
+
+.texto-de-servicios p {
+    font-size: 1.1rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+
+
+.caracteristicas {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 20px 0;
+}
+
+
+.caracteristicas li {
+    padding: 8px 0;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 25px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.caracteristicas li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #F9A91A;
+    font-weight: bold;
+}
+
+
+.btn-servicio {
+    display: inline-block;
+    padding: 12px 25px;
+    color: #0B1B26;
+    font-weight: bold;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 1%;
+    background-color: white;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+.btn-servicio:hover{
+    color: white;
+}
+
+.separador {
+    border: 0;
+    height: 2px;
+    background: #F9A91A;
+    margin: 25px 0;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+/*Seccion de contenido final*/
+
+.bloque-garantias {
+background-color: #f9f9f9;
+border: 2px solid goldenrod;
+border-radius: 5px;
+padding-top: 25px;
+margin-top: 50px;
+text-align: center;
+}
+
+.bloque-garantias h2 {
+    color: #0B1B26;
+    margin-bottom: 2%;
+}
+
+.grid-garantias {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 3%;
+}
+
+
+.caja-garantia {
+flex: 1 1 250px;
+background-color: whitesmoke;
+padding: 2%;
+border-radius: 10px;
+border: 1px solid #eee;
+box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+
+.caja-garantia h4 {
+    color: #2b230c;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+
+.caja-garantia p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+/*CSS de las IMAGENES que estan Dentro de contenedor-servicios*/
+
+.imagenes img{
+max-width: 45%;
+margin-right: 4%;
+border: 2px dashed gold;
+}
+
+/*span (me dió hueva poner el b o strong en el html)*/
+span {
+    font-weight: bold;
+}
+
+
+/* CSS DE TALLER*/
+
+.contenedor-tarifas h2 {
+    color: var(--naranja);
+}
+
+
+.contenedor-tarifas {
+max-width: 1000px;
+margin: 30px auto;
+padding: 20px;
+background-color: rgba(0, 0, 0, 0.747);
+border-radius: 2%;
+padding-top: 2%;
+margin-top: 5%;
+}
+
+
+.aviso-tarifas {
+    background-color: #ffe0b2;
+    border-left: 2px solid  #bf4300;
+    padding: 12px;
+    margin-bottom: 2%;
+}
+
+
+.tabla-tarifas {
+    background-color: #ffe0b2;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+.tabla-tarifas tr, .tabla-tarifas td {
+    padding: 3%;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+
+.tabla-tarifas th {
+    background-color: #112636;
+    color: wheat;
+}
+
+
+.tabla-tarifas p {
+    margin: 2px auto;
+    font-size: 1.2rem;
+    color: var(--texto);
+}
+
+
+.importe {
+    font-weight: bold;
+}
+
+
+.gratis {
+    color: orangered;
+    font-weight: bold;
+}
+
+
+    .boton-comprar {
+    background-color: #e65100;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    }
+
+
+    .boton-comprar:hover {
+    background-color: #bf4300;
+    }
+
+
+/*CSS DE ALQUILER*/
+
+.contenedor h2 {
+padding-top: 2%;
+margin: auto 5%;
+color: #173D30;
+font-size: 200%;
+}
+
+
+.contenedor-parrafo {
+    margin: auto 8%;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+
+    grid-bicis {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    }
+
+
+    .tarjeta-bici {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid gold;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 2%;
+    }
+
+
+    .tarjeta-bici img {
+    width: 15%;
+    height: 150px;
+    border-radius: 6px;
+    }
+
+
+    .tarjeta-bici p {
+    color: #666;
+    font-size: 14px;
+    }
+
+
+    .precio-bici {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e65100;
+    margin: 10px 0;
+    }
+
+
+    /* controles de + y - para sumar o restar cantidad del producto*/
+    .controles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    }
+
+
+    .controles button {
+    background-color: #222;
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    }
+
+
+    .controles button:hover {
+    background-color: #e65100;
+    }
+
+
+    .controles span {
+    font-size: 18px;
+    font-weight: bold;
+    }
+
+
+    .caja-total {
+    background-color: white;
+    border: 2px solid #e65100;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    }
+
+
+    .caja-total h3 {
+    font-size: 22px;
+    margin: 0;
+    }
+
+
+    .caja-total span {
+    color: #e65100;
+    }
+
+
+    .boton-alquilar {
+    background-color: #e65100;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    }
+
+
+    .boton-alquilar:hover {
+    background-color: #bf4300;
+    }
+
+/*se me olvido hacer este boton de selccion de las piezas xd*/
+
+    .boton-seleccionar {
+    background-color: #e65100;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    }
+
+
+/* 12. RESPONSIVE*/
 @media (max-width: 1000px) {
     .services-container { grid-template-columns: 1fr; max-width: 540px; }
 }
