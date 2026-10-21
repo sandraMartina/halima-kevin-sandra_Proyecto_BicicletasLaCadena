@@ -42,7 +42,7 @@ function alquilar() {
     let alertaSeccion = document.querySelector('.alerta');
 
     if (total === 0) {
-        alerta.Seccion.style.color = "red";
+        alertaSeccion.style.color = "red";
         alertaSeccion.innerText = 'Por favor, selecciona al menos una bicicleta antes de continuar.';
     } else {
         alertaSeccion.style.color = "green";
