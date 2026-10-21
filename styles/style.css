@@ -369,6 +369,14 @@ se adapte de forma segura a ellos tambien */
 .service-card p {
     padding: 10px 24px 26px;
     color: var(--gris);
+
+/* agregamos a la tarjeta el link para llevarlos a las paginas correspondients  */
+.card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
 }
 
 /* =========================
