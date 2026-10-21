@@ -441,113 +441,167 @@ se adapte de forma segura a ellos tambien */
 /*ACA ABAJO ESTARAN LOS CSS DE PAGINA SERVICIOS, ALQUILER y TALLER (EL POR QUE HAGO ESO? LA BARRA DE NAVEGACION SE PETO HORRIBLE, 
     Y COMO TENEMOS POCO TIEMPO... LO PONDRE AQUI ABAJO. ODIO GITHUB -c-) */
 
-/* Contenido de css de la pagina en general: SERVICIOS (odio los submenus):*/
+/* Contenido de css de la pagina en general: SERVICIOS (Odio los Submenus Javi (Es de una carpeta de css que se peto horrible como dije arriba))*/
+
+
+.servicios {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 25px 20px;
+}
 
 .servicios h1 {
     text-align: center;
+    color: #173D30;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-bottom: 20px;
 }
 
 .servicios p {
-margin-left: 3%;
-margin-top: 5px;
-font-family: Georgia, 'Times New Roman', Times, serif;
-font-size: 120%;
+    max-width: 850px;
+    margin: 0 auto;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: center;
 }
 
 
 .contenedor-servicios {
-padding: 50px 25px;
-text-align: center;
-background-color: #ecebe6c0;
-max-width: 1000px;
-margin: 40px auto;
+    max-width: 1150px;
+    margin: 30px auto;
+    padding: 35px;
+    background-color: #f5f5f0;
+    border-radius: 16px;
+    box-sizing: border-box;
 }
 
-
+/* Distribución de texto e imágenes para que no se pete*/
 .seccion-detalles {
-    padding: 30px 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 35px;
+    align-items: start;
+    padding: 15px 0;
 }
 
 
-.enlace-servicios {
-    margin-top: 25px;
+.texto-de-servicios h3 {
+    color: #173D30;
+    font-family: "Gill Sans", Calibri, sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-top: 0;
 }
 
 
 .texto-de-servicios h2 {
-    margin-top: 2%;
-    font-size: 1.8rem;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
-}
-
-.texto-de-servicios h3 {
-    font-size: 1.3rem;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    color: #173D30;
+    font-family: "Gill Sans", Calibri, sans-serif;
+    font-size: 1.35rem;
+    line-height: 1.4;
+    margin-top: 28px;
 }
 
 
 .texto-de-servicios p {
-    font-size: 1.1rem;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-family: "Gill Sans", Calibri, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #444;
+    margin: 15px 0;
 }
 
 
 .caracteristicas {
-    list-style-type: none;
-    padding-left: 0;
+    list-style: none;
+    padding: 0;
     margin: 20px 0;
 }
 
 
 .caracteristicas li {
-    padding: 8px 0;
-    line-height: 1.5;
     position: relative;
-    padding-left: 25px;
-    font-size: 1rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 28px;
+    margin-bottom: 16px;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 0.98rem;
+    line-height: 1.75;
+    color: #414141;
+    overflow-wrap: anywhere;
 }
-
 
 .caracteristicas li::before {
     content: "✔";
     position: absolute;
     left: 0;
-    color: #F9A91A;
+    top: 0;
+    color: #d8950b;
     font-weight: bold;
+}
+
+.caracteristicas span {
+    color: #173D30;
+    font-weight: bold;
+}
+
+
+.columna-visual {
+    min-width: 0;
+}
+
+/*Css de IMAGENES (primera Parte*/
+.imagenes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.imagenes img {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+
+.enlace-servicios {
+    margin-top: 24px;
 }
 
 
 .btn-servicio {
     display: inline-block;
-    padding: 12px 25px;
-    color: #0B1B26;
-    font-weight: bold;
-    border-radius: 25px;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    margin-bottom: 1%;
-    background-color: white;
-}
-
-
-a {
-    text-decoration: none;
-}
-
-
-.btn-servicio:hover{
+    padding: 13px 20px;
+    background-color: #173D30;
     color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border-radius: 25px;
+    transition: background-color 0.2s ease,
+                transform 0.2s ease;
 }
+
+
+.btn-servicio:hover {
+    background-color: #285b47;
+    transform: translateY(-2px);
+}
+
 
 .separador {
     border: 0;
     height: 2px;
+    max-width: 850px;
     background: #F9A91A;
-    margin: 25px 0;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin: 40px auto;
+    width: 70%;
 }
+
 
 /*Seccion de contenido final*/
 
@@ -600,7 +654,7 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 
-/*CSS de las IMAGENES que estan Dentro de contenedor-servicios*/
+/*CSS de las IMAGENES (De nuevo)*/
 
 .imagenes img{
 max-width: 45%;
@@ -616,53 +670,58 @@ span {
 
 /* CSS DE TALLER*/
 
-.contenedor-tarifas h2 {
-    color: var(--naranja);
-}
-
 
 .contenedor-tarifas {
-max-width: 1000px;
-margin: 30px auto;
-padding: 20px;
-background-color: rgba(0, 0, 0, 0.747);
-border-radius: 2%;
-padding-top: 2%;
-margin-top: 5%;
+    width: calc(100% - 40px);
+    max-width: 1000px;
+    box-sizing: border-box;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: var(--verde);
+    border-radius: 12px;
 }
 
+.contenedor-tarifas h2 {
+    color: var(--naranja);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
 
 .aviso-tarifas {
     background-color: #ffe0b2;
-    border-left: 2px solid  #bf4300;
-    padding: 12px;
-    margin-bottom: 2%;
+    border-left: 4px solid #bf4300;
+    padding: 15px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    border-radius: 4px;
 }
 
-
 .tabla-tarifas {
-    background-color: #ffe0b2;
     width: 100%;
+    background-color: #fff8ed;
     border-collapse: collapse;
 }
 
-
-.tabla-tarifas tr, .tabla-tarifas td {
-    padding: 3%;
+.tabla-tarifas th,
+.tabla-tarifas td {
+    padding: 14px 16px;
     border-bottom: 1px solid #ddd;
     text-align: left;
+    line-height: 1.5;
 }
-
 
 .tabla-tarifas th {
-    background-color: #112636;
-    color: wheat;
+    background-color: var(--naranja-suave);
+    color: #222;
 }
 
+.tabla-tarifas td {
+    color: var(--texto);
+}
 
 .tabla-tarifas p {
-    margin: 2px auto;
-    font-size: 1.2rem;
+    margin: 2px 0;
+    font-size: 1rem;
     color: var(--texto);
 }
 
@@ -825,31 +884,8 @@ margin-top: 5%;
     }
 
 
-    .caja-total {
-    background-color: white;
-    border: 2px solid #e65100;
-    padding: 20px;
-    margin-top: 30px;
-    border-radius: 8px;
-    text-align: center;
-    margin-left: 5%;
-    margin-right: 5%;
-    }
-
-
-    .caja-total h3 {
-    font-size: 22px;
-    margin: 0;
-    }
-
-
-    .caja-total span {
-    color: #e65100;
-    }
-
-
     .boton-alquilar {
-    background-color: #e65100;
+    background-color: var(--naranja);
     color: white;
     border: none;
     padding: 12px 25px;
@@ -864,6 +900,27 @@ margin-top: 5%;
     .boton-alquilar:hover {
     background-color: #bf4300;
     }
+
+
+.caja-total {
+    background-color: white;
+    border: 2px solid var(--naranja);
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    text-align: center;
+    margin-left:15%;
+    margin-right: 15%;
+}
+
+.caja-total h3 {
+    font-size: 22px;
+    margin: 0;
+}
+
+.caja-total span {
+    color: #e65100;
+}
 
 /*se me olvido hacer este boton de selccion de las piezas xd*/
 
