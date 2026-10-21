@@ -528,6 +528,37 @@ a:focus-visible,
     font-weight: bold;
 }
 
+.caracteristicas span {
+    color: #173D30;
+    font-weight: bold;
+}
+
+
+.columna-visual {
+    min-width: 0;
+}
+
+/*Css de IMAGENES (primera Parte)*/
+.imagenes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.imagenes img {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+
+.enlace-servicios {
+    margin-top: 24px;
+}
+
 
 .columna-visual {
     min-width: 0;
@@ -706,6 +737,23 @@ span {
     margin: 2px 0;
     font-size: 1rem;
     color: var(--texto);
+    line-height: 1.6;
+}
+
+
+.tabla-tarifas .precio {
+    color: #a84408;
+    font-weight: 700;
+    white-space: nowrap;
+    font-size: 1.05rem;
+}
+
+/* Talvez... Una pequeña Accesibilidad para que se puede leer mejor? */
+
+.tabla-tarifas th:focus-visible,
+.tabla-tarifas td:focus-visible {
+    outline: 2px solid var(--naranja);
+    outline-offset: -3px;
 }
 
 
