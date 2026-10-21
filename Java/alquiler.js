@@ -45,7 +45,7 @@ function alquilar() {
         alerta.Seccion.style.color = "red";
         alertaSeccion.innerText = 'Por favor, selecciona al menos una bicicleta antes de continuar.';
     } else {
-        alerta.Seccion.style.color = "green";
+        alertaSeccion.style.color = "green";
         alertaSeccion.innerText = '¡Reserva realizada con éxito! El total a pagar en tienda es: ' + total +' € (Recuerda traer la fianza de 50 € o tu DNI para facilitar el Trámite).';
     }
 }
