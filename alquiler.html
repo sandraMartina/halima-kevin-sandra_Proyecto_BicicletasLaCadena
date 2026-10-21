@@ -46,11 +46,21 @@
     </header>
 
     <div class="contenedor">
+
         <h2>Alquiler de Bicicletas</h2>
         <p class="contenedor-parrafo">¡Ponemos a tu disposición bicicletas que puedan satisfacer tus necesidades!. Para
             hacer una ruta con los amigos, para ir de rita con tu pareja, para ir a una competición de fin de semana,
             disponemos varias Bicicletas como: bicicletas de carretera o MTB y Bicicletas Eléctricas.</p>
         <p class="contenedor-parrafo">Selecciona la cantidad de bicicletas que quieres alquilar:</p>
+
+                <div class="caja-total">
+            <h3>TOTAL A PAGAR: <span id="total-precio">0</span> €</h3>
+            <p>* Incluye casco y candado. Se requiere fianza de 50 € o DNI. El precio del Equipamiento no estan incluidos,
+                se recomienda venir a conversar con Lucía o Rosendo para facilitar las Piezas correspondientes (no se incluye el
+                IVA en el equipamiento).</p>
+            <p class="alerta"></p>
+            <button class="boton-alquilar" onclick="alquilar()">Confirmar Alquiler</button>
+        </div>
 
         <div class="grid-bicis">
 
@@ -131,15 +141,6 @@
 
         </div>
 
-        <div class="caja-total">
-            <h3>TOTAL A PAGAR: <span id="total-precio">0</span> €</h3>
-            <p>* Incluye casco y candado. Se requiere fianza de 50 € o DNI. El precio del Equipamiento no estan incluidos,
-                se recomienda venir a conversar con Lucía o Rosendo para facilitar las Piezas correspondientes (no se incluye el
-                IVA en el equipamiento).</p>
-            <p class="alerta"></p>
-            <button class="boton-alquilar" onclick="alquilar()">Confirmar Alquiler</button>
-        </div>
-
     </div>
 
     <footer class="footer">
@@ -149,5 +150,4 @@
     <script src="Java/alquiler.js"></script>
 
 </body>
-
 </html>
