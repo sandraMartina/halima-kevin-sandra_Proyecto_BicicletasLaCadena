@@ -550,7 +550,7 @@ se adapte de forma segura a ellos tambien */
     min-width: 0;
 }
 
-/*Css de IMAGENES (primera Parte*/
+/*Css de IMAGENES (primera Parte)*/
 .imagenes {
     display: grid;
     grid-template-columns: 1fr;
@@ -670,59 +670,120 @@ span {
 
 /* CSS DE TALLER*/
 
-
 .contenedor-tarifas {
     width: calc(100% - 40px);
     max-width: 1000px;
     box-sizing: border-box;
-    margin: 40px auto;
-    padding: 25px;
+    margin: 45px auto;
+    padding: clamp(20px, 4vw, 40px);
     background-color: var(--verde);
-    border-radius: 12px;
+    border: 1px solid rgba(23, 61, 48, 0.12);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
+
 
 .contenedor-tarifas h2 {
     color: var(--naranja);
-    margin-top: 0;
-    margin-bottom: 20px;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.3;
+    margin: 0 0 25px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--naranja-suave);
 }
 
+
 .aviso-tarifas {
-    background-color: #ffe0b2;
-    border-left: 4px solid #bf4300;
-    padding: 15px;
-    margin-bottom: 20px;
-    line-height: 1.6;
-    border-radius: 4px;
+    background-color: #fff0d9;
+    border-left: 5px solid #bf4300;
+    padding: 16px 20px;
+    margin-bottom: 25px;
+    border-radius: 6px;
+    color: #49351f;
+    font-size: 0.98rem;
+    line-height: 1.7;
 }
+
+
+.aviso-tarifas strong {
+    color: #963500;
+}
+
 
 .tabla-tarifas {
     width: 100%;
-    background-color: #fff8ed;
-    border-collapse: collapse;
+    background-color: #fff;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #e7e3dc;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.tabla-tarifas th,
-.tabla-tarifas td {
-    padding: 14px 16px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
-    line-height: 1.5;
-}
 
 .tabla-tarifas th {
     background-color: var(--naranja-suave);
-    color: #222;
+    color: #29251f;
+    padding: 16px;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.5;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.08);
 }
+
 
 .tabla-tarifas td {
+    padding: 16px;
     color: var(--texto);
+    text-align: left;
+    vertical-align: middle;
+    line-height: 1.65;
+    border-bottom: 1px solid #eae7e1;
+    overflow-wrap: anywhere;
 }
 
+
+.tabla-tarifas tbody tr:nth-child(even) {
+    background-color: #fffaf3;
+}
+
+
+.tabla-tarifas tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.tabla-tarifas tbody tr:hover {
+    background-color: #fff0d9;
+}
+
+
+.tabla-tarifas tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
 .tabla-tarifas p {
-    margin: 2px 0;
-    font-size: 1rem;
+    margin: 0;
+    font-size: 0.95rem;
     color: var(--texto);
+    line-height: 1.6;
+}
+
+
+.tabla-tarifas .precio {
+    color: #a84408;
+    font-weight: 700;
+    white-space: nowrap;
+    font-size: 1.05rem;
+}
+
+/* Talvez... Una pequeña Accesibilidad para que se puede leer mejor? */
+
+.tabla-tarifas th:focus-visible,
+.tabla-tarifas td:focus-visible {
+    outline: 2px solid var(--naranja);
+    outline-offset: -3px;
 }
 
 
