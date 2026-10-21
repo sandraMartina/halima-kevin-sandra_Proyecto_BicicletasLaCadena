@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nosotros | Biciletas la Cadena</title>
+    <meta name="description" content="Conoce quiénes somos y cómo trabajamos.">
+
+    <!-- Usamos las mismas fuentes que home -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <!-- HEADER: copiamos el mismo de home -->
+    <header class="header">
+    <a href="index.html" class="logo" aria-label="Bicicletas La Cadena - Inicio">
+        <img class="img-fluid" src="assets/Logo-withoutLetter.png" alt="Bicicletas La Cadena">
+    </a>
+
+    <nav class="navegacion" aria-label="Navegación principal">
+        <ul class="menu">
+        <li>
+            <a href="index.html" class="menu-link" aria-current="page">Inicio</a>
+        </li>
+
+        <li class="menu-item">
+            <a href="servicios.html" class="menu-link">
+                Servicios <span class="flecha">▼</span>
+            </a>
+            <!-- El submenú desplegable -->
+            <ul class="submenu">
+                <li><a href="alquiler.html" class="submenu-link">Alquiler</a></li>
+                <li><a href="taller.html" class="submenu-link">Taller</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="aboutUs.html" class="menu-link">Quiénes somos</a>
+        </li>
+
+        <li>
+            <!-- El botón de contacto combina la base de la cadena con el color destacado -->
+            <a href="contacto.html" class="menu-link nav-contacto">Contacto ↗</a>
+        </li>
+    </ul>
+    </nav>
+</header>
+    <main>
+
+        <!-- HERO (reutiliza .hero, más bajo) -->
+        <section class="hero hero-nosotros">
+            <img class="hero-image" src="assets/aboutUs.png" alt="El equipo trabajando">
+            <div class="hero-content">
+                <h1>Personas detras de cada proyecto</h1>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="about-story">
+                <img class="img-fluid about-story-img" src="img/nosotros-historia.jpg" alt="Nuestro taller">
+                <div class="about-story-text">
+                    <h2>Nuestra historia</h2>
+                    <p>En Bicicletas La Cadena arreglamos y alquilamos bicis desde 2009. Somos Rosendo, Nando y Lucía. Te decimos el precio antes de tocar nada y te lo explicamos en cristiano</p>
+                    <p>Trabajamos con todo tipo de clientes en Asturias, siempre con trato directo y plazos que cumplimos.</p>
+                    <a class="btn" href="#contacto">Hablemos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- VALORES (reutiliza el estilo de las tarjetas de servicios) -->
+        <section class="section section-valores">
+            <h2>Lo que nos importa</h2>
+            <p class="section-intro">Ideas que guían nuestro trabajo todos los días.</p>
+
+            <div class="values-container">
+                <article class="value-card">
+                    <h3>Cercanía</h3>
+                    <p>Hablaras siempre con las mismas personas, sin intermediarios ni respuestas automáticas.</p>
+                </article>
+                <article class="value-card">
+                    <h3>Calidad</h3>
+                    <p>Revisamos cada detalle antes de entregar. Si algo no nos convence, lo rehacemos.</p>
+                </article>
+                <article class="value-card">
+                    <h3>Compromiso</h3>
+                    <p>Te damos plazos claros y los cumplimos. Si algo cambia, te avisamos primero.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section class="section contact" id="contacto">
+            <h2>¿Trabajamos juntos?</h2>
+            <p>Cuéntanos qué necesitas y te respondemos en menos de 24 horas.</p>
+            <a class="btn" href="https://wa.me/34600000000">Escríbenos por WhatsApp</a>
+        </section>
+
+    </main>
+
+   <!-- REDES FLOTANTES-->   
+<div class="social-float">
+
+    <!-- WhatsApp -->
+    <a
+        href="https://wa.me/34600000000"
+        class="social-btn whatsapp"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar por WhatsApp"
+    >
+        <img
+            src="https://cdn.simpleicons.org/whatsapp/FFFFFF"
+            alt=""
+        >
+    </a>
+
+    <!-- Instagram -->
+    <a
+        href="https://www.instagram.com/LACADENA.BICIS/"
+        class="social-btn instagram"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visitar Instagram"
+    >
+        <img
+            src="https://cdn.simpleicons.org/instagram/FFFFFF"
+            alt=""
+        >
+    </a>
+
+</div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Tu Empresa. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
