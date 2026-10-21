@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contacto | Bicicletas La Cadena</title>
+    <meta name="description" content="Escríbenos o llámanos. Te respondemos en menos de 24 horas.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <header class="header">
+    <a href="index.html" class="logo" aria-label="Bicicletas La Cadena - Inicio">
+        <img class="img-fluid" src="assets/Logo-withoutLetter.png" alt="Bicicletas La Cadena">
+    </a>
+
+    <nav class="navegacion" aria-label="Navegación principal">
+        <ul class="menu">
+        <li>
+            <a href="index.html" class="menu-link" aria-current="page">Inicio</a>
+        </li>
+
+        <li class="menu-item">
+            <a href="servicios.html" class="menu-link">
+                Servicios <span class="flecha">▼</span>
+            </a>
+            <!-- El submenú desplegable -->
+            <ul class="submenu">
+                <li><a href="alquiler.html" class="submenu-link">Alquiler</a></li>
+                <li><a href="taller.html" class="submenu-link">Taller</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="aboutUs.html" class="menu-link">Quiénes somos</a>
+        </li>
+
+        <li>
+            <!-- El botón de contacto combina la base de la cadena con el color destacado -->
+            <a href="contact.html" class="menu-link nav-contacto">Contacto ↗</a>
+        </li>
+    </ul>
+    </nav>
+</header>
+
+    <main>
+
+        <section class="hero hero-nosotros">
+            <img class="hero-image" src="img/contacto-hero.jpg" alt="">
+            <div class="hero-content">
+                <h1>Hablemos</h1>
+                <p>Estamos para servirte y brindarte el apoyo que necesites.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="contact-layout">
+
+                <!-- DATOS -->
+                <div class="contact-info">
+                    <h2>Cómo encontrarnos</h2>
+
+                    <ul class="contact-list">
+                        <li>
+                            <h3>WhatsApp</h3>
+                            <a href="https://wa.me/34000000000">+34 600 000 000</a>
+                        </li>
+                        <li>
+                            <h3>Teléfono</h3>
+                            <a href="tel:+34000000000">+34 600 000 000</a>
+                        </li>
+                        <li>
+                            <h3>Email</h3>
+                            <a href="mailto:hola@lacadena.example">hola@lacadena.example</a>
+                        </li>
+                        <li>
+                            <h3>Instagram</h3>
+                            <p>@lacadena.bicis</p>
+                        </li>
+                        <li>
+                            <h3>Dirección</h3>
+                            <p>Calle del Molino, 14, bajo<br>Villabuena del Monte</p>
+                        </li>
+                        <li>
+                            <h3>Horario</h3>
+                            <p>Martes a viernes, 9:30 a 13:30 y de 16:30 a 20:00</p>
+                            <p>Sábados: de 10:00 a 14:00</p>
+                            <p>Lunes y domingos: Cerrados</p>
+
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- FORMULARIO -->
+                <form class="contact-form" action="" method="POST">
+                    <h2>Envíanos un mensaje</h2>
+
+                    <div class="field">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="telefono">Teléfono (opcional)</label>
+                        <input type="tel" id="telefono" name="telefono" autocomplete="tel">
+                    </div>
+
+                    <div class="field">
+                        <label for="servicio">¿Qué te interesa?</label>
+                        <select id="servicio" name="servicio">
+                            <option value="">Elige una opción</option>
+                            <option>Alquilar</option>
+                            <option>Taller</option>
+                            <option>dudas</option>
+                            <option>Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                    </div>
+
+                    <button class="btn" type="submit">Enviar mensaje</button>
+                </form>
+
+            </div>
+        </section>
+
+        <!-- MAPA (sustituye el src por el de tu ubicación en Google Maps → Compartir → Insertar mapa) -->
+        <section class="map-section">
+            <iframe 
+            title="Mapa de nuestra ubicación"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1489.060333769283!2d-2.6301836610504092!3d41.7179149448977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd44c544d359b7c7%3A0x3593bd793e296c71!2s42290%20Villabuena%2C%20Soria!5e0!3m2!1ses!2ses!4v1792582225746!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+ 
+        </section>
+
+    </main>
+
+    <div class="social-float">
+        <a class="social-btn whatsapp" href="https://wa.me/34000000000" aria-label="WhatsApp">
+            <img src="img/whatsapp.svg" alt="">
+        </a>
+        <a class="social-btn instagram" href="https://instagram.com/tuusuario" aria-label="Instagram">
+            <img src="img/instagram.svg" alt="">
+        </a>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Tu Empresa. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
