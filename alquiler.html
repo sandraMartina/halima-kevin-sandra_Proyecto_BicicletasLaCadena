@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alquiler: Bicicleta La Cadena</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+    <!-- logo -->
+    <header class="header">
+        <a href="index.html" class="logo" aria-label="Bicicletas La Cadena - Inicio">
+            <img class="img-fluid" src="assets/Logo-withoutLetter.png" alt="Bicicletas La Cadena">
+        </a>
+
+        <nav class="navegacion" aria-label="Navegación principal">
+            <ul class="menu">
+                <li>
+                    <a href="index.html" class="menu-link" aria-current="page">Inicio</a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="servicios.html" class="menu-link">
+                        Servicios <span class="flecha">▼</span>
+                    </a>
+                    <!-- El submenú desplegable -->
+                    <ul class="submenu">
+                        <li><a href="alquiler.html" class="submenu-link">Alquiler</a></li>
+                        <li><a href="taller.html" class="submenu-link">Taller</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="nosotros.html" class="menu-link">Quiénes somos</a>
+                </li>
+
+                <li>
+                    <!-- El botón de contacto combina la base de la cadena con el color destacado -->
+                    <a href="contacto.html" class="menu-link nav-contacto">Contacto ↗</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="contenedor">
+        <h2>Alquiler de Bicicletas</h2>
+        <p class="contenedor-parrafo">¡Ponemos a tu disposición bicicletas que puedan satisfacer tus necesidades!. Para
+            hacer una ruta con los amigos, para ir de rita con tu pareja, para ir a una competición de fin de semana,
+            disponemos varias Bicicletas como: bicicletas de carretera o MTB y Bicicletas Eléctricas.</p>
+        <p class="contenedor-parrafo">Selecciona la cantidad de bicicletas que quieres alquilar:</p>
+
+        <div class="grid-bicis">
+
+            <div class="tarjeta-bici">
+                <img src="assets/bici-urbana.jpg" alt="Bici Urbana">
+                <h3>Urbana Estándar</h3>
+                <p>Para pasear por la ciudad.</p>
+                <div class="precio-bici">12 € / día</div>
+                <div class="controles">
+                    <button onclick="restar(1, 12)">-</button>
+                    <span id="cantidad-1">0</span>
+                    <button onclick="sumar(1, 12)">+</button>
+                </div>
+            </div>
+
+
+            <div class="tarjeta-bici">
+                <img src="assets/bici-urbana2.jpg" alt="Bici Vintage">
+                <h3>Urbana Fresita para su Pareja</h3>
+                <p>Estilo clásico con cesta.</p>
+                <div class="precio-bici">12 € / día</div>
+                <div class="controles">
+                    <button onclick="restar(2, 12)">-</button>
+                    <span id="cantidad-2">0</span>
+                    <button onclick="sumar(2, 12)">+</button>
+                </div>
+            </div>
+
+
+            <div class="tarjeta-bici">
+                <img src="assets/montañera.jpg" alt="Bici Montaña">
+                <h3>Montaña Trail</h3>
+                <p>Para caminos de tierra.</p>
+                <div class="precio-bici">20 € / día</div>
+                <div class="controles">
+                    <button onclick="restar(3, 20)">-</button>
+                    <span id="cantidad-3">0</span>
+                    <button onclick="sumar(3, 20)">+</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-bici">
+                <img src="assets/montañera2.jpg" alt="Bici Montaña Pro">
+                <h3>Montaña Pro</h3>
+                <p>Frenos de disco para rutas duras.</p>
+                <div class="precio-bici">20 € / día</div>
+                <div class="controles">
+                    <button onclick="restar(4, 20)">-</button>
+                    <span id="cantidad-4">0</span>
+                    <button onclick="sumar(4, 20)">+</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-bici">
+                <img src="assets/bicicleta-electrica2.jpg" alt="Bici Eléctrica MTB">
+                <h3>Eléctrica City</h3>
+                <p>Pedaleo asistido sin esfuerzo.</p>
+                <div class="precio-bici">35 € / día</div>
+                <div class="controles">
+                    <button onclick="restar(5, 35)">-</button>
+                    <span id="cantidad-5">0</span>
+                    <button onclick="sumar(5, 35)">+</button>
+                </div>
+            </div>
+
+
+            <div class="tarjeta-bici">
+                <img src="assets/bicicleta-electrica.jpg" alt="Bici Eléctrica">
+                <h3>Eléctrica MTB</h3>
+                <p>Potencia para subir cuestas.</p>
+                <div class="precio-bici">35 € / día</div>
+                <div class="controles">
+                    <button onclick="restar(6, 35)">-</button>
+                    <span id="cantidad-6">0</span>
+                    <button onclick="sumar(6, 35)">+</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="caja-total">
+            <h3>TOTAL A PAGAR: <span id="total-precio">0</span> €</h3>
+            <p>* Incluye casco y candado. Se requiere fianza de 50 € o DNI. El precio del Equipamiento no estan incluidos,
+                se recomienda venir a conversar con Lucía o Rosendo para facilitar las Piezas correspondientes (no se incluye el
+                IVA en el equipamiento).</p>
+            <p class="alerta"></p>
+            <button class="boton-alquilar" onclick="alquilar()">Confirmar Alquiler</button>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        &copy; 2026 Bicicletas La Cadena.
+        Todos los derechos reservados.
+    </footer>
+    <script src="Java/alquiler.js"></script>
+
+</body>
+
+</html>

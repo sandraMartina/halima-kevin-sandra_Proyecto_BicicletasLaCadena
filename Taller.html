@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller: Bicicleta La Cadena</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    
+<!-- logo -->
+        <header class="header">
+    <a href="index.html" class="logo" aria-label="Bicicletas La Cadena - Inicio">
+        <img class="img-fluid" src="assets/Logo-withoutLetter.png" alt="Bicicletas La Cadena">
+    </a>
+
+    <nav class="navegacion" aria-label="Navegación principal">
+        <ul class="menu">
+        <li>
+            <a href="index.html" class="menu-link" aria-current="page">Inicio</a>
+        </li>
+
+        <li class="menu-item">
+            <a href="servicios.html" class="menu-link">
+                Servicios <span class="flecha">▼</span>
+            </a>
+            <!-- El submenú desplegable -->
+            <ul class="submenu">
+                <li><a href="alquiler.html" class="submenu-link">Alquiler</a></li>
+                <li><a href="taller.html" class="submenu-link">Taller</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="nosotros.html" class="menu-link">Quiénes somos</a>
+        </li>
+
+        <li>
+            <a href="contacto.html" class="menu-link nav-contacto">Contacto ↗</a>
+        </li>
+    </ul>
+    </nav>
+</header>
+    <div class="contenedor-tarifas">
+        <h2>Servicios de Taller y Tarifas</h2>
+        
+        <div class="aviso-tarifas">
+        <b>Aviso:</b> Los precios de las piezas no están incluidos. Se cobran por separado.
+        </div>
+
+        <table class="tabla-tarifas">
+        <thead>
+            <tr>
+            <th>Servicio</th>
+            <th>Precio</th>
+            <th>Plazo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>
+                <b>Puesta a punto básica</b>
+                <p>Frenos, cambios, presión y engrase</p>
+                <button type="button" class="boton-seleccionar">Agregar</button>
+            </td>
+            <td class="importe">25 €</td>
+            <td>Mismo día (si se trae antes de las 11:00)</td>
+            </tr>
+            <tr>
+            <td>
+                <b>Puesta a punto completa</b>
+                <p>
+                    Limpieza profunda y ajuste de ruedas
+                </p>
+                <button type="button" class="boton-seleccionar">Agregar</button>
+            </td>
+            <td class="importe">45 €</td>
+            <td>2 o 3 días laborables</td>
+            </tr>
+            <tr>
+            <td>
+            <p>
+                Cambio de cámara
+            </p>    
+            <button type="button" class="boton-seleccionar">Agregar</button>
+            </td>
+            <td class="importe">8 € + pieza</td>
+            <td>Mientras esperan</td>
+            </tr>
+            <tr>
+            <td>
+            <p>
+                Cambio de cubierta
+            </p>    
+            <button type="button" class="boton-seleccionar">Agregar</button>
+            </td>
+            <td class="importe">10 € + pieza</td>
+            <td>Mientras esperan</td>
+            </tr>
+            <tr>
+            <td>
+                <p>
+                    Ajuste de frenos
+                </p>
+            <button type="button" class="boton-seleccionar">Agregar</button>
+            </td>
+            <td class="importe">12 €</td>
+            <td>Mientras esperan</td>
+            </tr>
+            <tr>
+            <td>
+                <p>
+                    Cambio de cadena
+                </p>
+            <button type="button" class="boton-seleccionar">Agregar</button>
+            </td>
+            <td class="importe">10 € + pieza</td>
+            <td>Mientras esperan</td>
+            </tr>
+            <tr>
+            <td>
+                <p>
+                    entrado de rueda
+                </p>
+            <button type="button" class="boton-seleccionar">Agregar</button>
+            </td>
+            <td class="importe">15 €</td>
+            <td>1 día</td>
+            </tr>
+            <tr>
+            <td>
+                <p>
+                    Diagnostico de Bicicleta Electrica
+                </p>
+            <button type="button" class="boton-seleccionar">Agregar</button>
+            </td>
+            <td class="gratis">Gratis</td>
+            <td>1 o 2 días</td>
+            </tr>
+            <tr>
+            <td>
+                <p>
+                    Presupuesto de reparación
+                </p>
+            <button type="button" class="boton-seleccionar">Agregar</button>
+            </td>
+            <td class="gratis">Gratis</td>
+            <td>Rosendo llama para confirmar</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+
+    <div class="caja-total">
+    <h3>TOTAL A PAGAR: <span id="total-precio">0</span> €</h3>
+    
+    <div id="resumen-carrito"></div>
+    <p class="alerta"></p>
+    <button class="boton-comprar" onclick="comprar()">Confirmar Pago</button>
+</div>
+
+    <footer class="footer">
+&copy; 2026 Bicicletas La Cadena.
+        Todos los derechos reservados.
+    </footer>
+    <script src="./Java/taller.js"></script>
+</body>
+</html>
