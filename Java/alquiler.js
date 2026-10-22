@@ -12,7 +12,7 @@ function actualizarTotal() {
 
     function sumar(numeroBici, precio) {
     const ELEMENTOCANTIDAD = document.getElementById('cantidad-' + numeroBici);
-    let cantidad = parseInt(ELEMENTOCANTIDAD.textContent, 10) || 0;
+    let cantidad = parseInt(ELEMENTOCANTIDAD.textContent) || 0;
 
     cantidad++;
     ELEMENTOCANTIDAD.textContent = cantidad;
@@ -25,7 +25,7 @@ function actualizarTotal() {
 
 function restar(numeroBici, precio) {
     const ELEMENTOCANTIDAD = document.getElementById('cantidad-' + numeroBici);
-    let cantidad = parseInt(ELEMENTOCANTIDAD.textContent, 10) || 0;
+    let cantidad = parseInt(ELEMENTOCANTIDAD.textContent) || 0;
 
     if (cantidad > 0) {
         cantidad--;
