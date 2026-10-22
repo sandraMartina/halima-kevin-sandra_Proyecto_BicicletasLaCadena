@@ -71,8 +71,7 @@ Culpa de Javi -c-*/
 
 function comprar() {
     const ALERTATOTAL = document.querySelector(".alerta");
-    const TOTALACTUAL = Number(document.getElementById("total-precio").textContent
-    );
+    const TOTALACTUAL = Number(document.getElementById("total-precio").textContent);
 
     const BOTONES = document.querySelectorAll(".boton-seleccionar");
     const FILAS = document.querySelectorAll("tbody tr");
@@ -92,12 +91,12 @@ function comprar() {
 
     if (!haySeleccion) {
         ALERTATOTAL.textContent = "¡Agrega una opción en las tarifas!";
-        ALERTATOTAL.stylecolor = "red";
+        ALERTATOTAL.style.color = "red";
     } else if (hayGratis) {
         ALERTATOTAL.textContent = "¡Has agregado una de las opciones gratis a la compra! Total: " + TOTALACTUAL + " €";
         ALERTATOTAL.style.color = "orangered";
     } else {
         ALERTATOTAL.textContent = "¡Compra confirmada! Total: " + TOTALACTUAL + " €";
-        ALERTATOTAL.stylecolor = "green";
+        ALERTATOTAL.style.color = "green";
     }
 }
