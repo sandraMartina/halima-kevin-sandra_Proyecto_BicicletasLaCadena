@@ -71,8 +71,7 @@ Culpa de Javi -c-*/
 
 function comprar() {
     const ALERTATOTAL = document.querySelector(".alerta");
-    const TOTALACTUAL = Number(document.getElementById("total-precio").textContent
-    );
+    const TOTALACTUAL = Number(document.getElementById("total-precio").textContent);
 
     const BOTONES = document.querySelectorAll(".boton-seleccionar");
     const FILAS = document.querySelectorAll("tbody tr");
