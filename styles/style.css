@@ -1218,3 +1218,55 @@ span {
 @media (max-width: 520px) {
     .contact-form { padding: 28px 20px; }
 }
+
+
+/* Página de confirmación */
+.gracias { display: grid; place-items: center; min-height: 60vh; }
+
+.gracias-card {
+    max-width: 620px;
+    padding: 48px 36px;
+    text-align: center;
+    background: var(--blanco);
+    border: 1px solid rgba(23, 61, 48, 0.08);
+    border-top: 5px solid var(--naranja);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+}
+
+.gracias-icono {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: var(--verde);
+    color: var(--blanco);
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.gracias-card h1 {
+    margin-bottom: 14px;
+    color: var(--verde);
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    line-height: 1.1;
+}
+
+.gracias-card p { color: var(--gris); }
+.gracias-horario { margin-top: 14px; font-size: 0.92rem; }
+
+.gracias-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.btn-secundario {
+    background: transparent;
+    color: var(--verde);
+    border-color: var(--verde);
+}

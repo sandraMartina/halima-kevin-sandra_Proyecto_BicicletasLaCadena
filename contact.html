@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contacto | Bicicletas La Cadena</title>
-    <meta name="description" content="Escríbenos o llámanos. Te respondemos en menos de 24 horas.">
+    <meta name="description" content="Escríbenos o llámanos.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,8 +96,10 @@
                 </div>
 
                 <!-- FORMULARIO -->
-                <form action="https://api.web3forms.com/submit" method="POST">
+                <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
                     <input type="hidden" name="access_key" value="6d1abf25-e7ef-4b4b-b61e-e9d468484962">
+                    <input type="hidden" name="subject" value="Nuevo mensaje desde la web de La Cadena">
+                    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
                     <h2>Envíanos un mensaje</h2>
 
                     <div class="field">
@@ -141,9 +143,14 @@
         <section class="map-section">
             <iframe 
             title="Mapa de nuestra ubicación"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1489.060333769283!2d-2.6301836610504092!3d41.7179149448977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd44c544d359b7c7%3A0x3593bd793e296c71!2s42290%20Villabuena%2C%20Soria!5e0!3m2!1ses!2ses!4v1792582225746!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-            loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1489.060333769283!2d-2.6301836610504092!3d41.7179149448977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd44c544d359b7c7%3A0x3593bd793e296c71!2s42290%20Villabuena%2C%20Soria!5e0!3m2!1ses!2ses!4v1792582225746!5m2!1ses!2ses"
+             width="600" height="450" 
+             style="border:0;" 
+             allowfullscreen="" 
+             loading="lazy" 
+             referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            
  
         </section>
 
@@ -184,7 +191,7 @@
 </div>
 
     <footer class="footer">
-        <p>&copy; 2026 Tu Empresa. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Bicicletas la Cadena. Todos los derechos reservados.</p>
     </footer>
 
 </body>
