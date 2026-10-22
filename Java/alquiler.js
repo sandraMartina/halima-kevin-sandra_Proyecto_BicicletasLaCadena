@@ -21,7 +21,7 @@ function actualizarTotal() {
     actualizarTotal();
 }
 
-// Parte de restaraca abajo (que se lo explique el function -c-)
+// Parte de resta raca abajo (que se lo explique el function -c-)
 
 function restar(numeroBici, precio) {
     const ELEMENTOCANTIDAD = document.getElementById('cantidad-' + numeroBici);
