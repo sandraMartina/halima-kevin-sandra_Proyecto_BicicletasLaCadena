@@ -72,7 +72,7 @@ Culpa de Javi -c-*/
 })();
 
 
-/* Y por Ultimo. ya teniendo el recorrdio de actualizarResumen, se hara la fucntion comprar para aceptar la compra que se hay marcado, ya seaq gratuita o de pago... y tendra un alert en .alerta para que el
+/* Y por Ultimo, ya teniendo el recorrido de actualizarResumen, se hara la function comprar para aceptar la compra que se haya marcado, ya sea gratuita o de pago... y tendra un .textcontent en .alerta (QUE ES DONDE SE VA A MOSTRAR EL PRECIO) para que el
 usuario añada una de las opciones para la confirmacion de pago (estoy muerto del frio banda, Culpa de luis (perdon))*/
 
 function comprar() {
@@ -108,4 +108,4 @@ function comprar() {
 }
 
 /* ¿Por que pongo Index si es algo que no hemos visto en JS? Pues no iba a romperme la cabeza para enumerar o poner un pinche codigo que ni Dios entenderia, asi que un pequeño resumen de index en JS:
-hace referencia a la posición numérica que ocupa un elemento dentro de una lista, un array o una colección de elementos (Las I'as nos van a esclavizar Chavales 🥀)*/
+hace referencia a la posición numérica que ocupa un elemento dentro de una lista, un array o una colección de elementos (Las I'as nos van a esclavizar Chavales 🥀) */
