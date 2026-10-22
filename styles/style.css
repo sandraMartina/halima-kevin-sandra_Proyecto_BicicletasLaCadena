@@ -1351,3 +1351,42 @@ a:focus-visible,
         scroll-behavior: auto !important;
     }
 }
+
+/* Servicios media*/
+@media screen and (min-width: 350px) and (max-width: 1024px) {
+    .servicios {
+        padding: 35px 20px 15px;
+    }
+
+    .contenedor-servicios {
+        width: calc(100% - 32px);
+        padding: clamp(18px, 4vw, 30px);
+    }
+
+    .seccion-detalles {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .imagenes {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    }
+
+    .imagenes img {
+        width: 100%;
+        max-width: 100%;
+        height: clamp(180px, 32vw, 240px);
+        margin-right: 0;
+        box-sizing: border-box;
+    }
+
+    .btn-servicio {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .bloque-garantias {
+        padding: 20px;
+    }
+}
