@@ -92,12 +92,12 @@ function comprar() {
 
     if (!haySeleccion) {
         ALERTATOTAL.textContent = "¡Agrega una opción en las tarifas!";
-        ALERTATOTAL.stylecolor = "red";
+        ALERTATOTAL.style.color = "red";
     } else if (hayGratis) {
         ALERTATOTAL.textContent = "¡Has agregado una de las opciones gratis a la compra! Total: " + TOTALACTUAL + " €";
         ALERTATOTAL.style.color = "orangered";
     } else {
         ALERTATOTAL.textContent = "¡Compra confirmada! Total: " + TOTALACTUAL + " €";
-        ALERTATOTAL.stylecolor = "green";
+        ALERTATOTAL.style.color = "green";
     }
 }
